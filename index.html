@@ -1,0 +1,691 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>English Exam - First Semester | 5 Units - Grammar Mastery</title>
+    <style>
+        /* Comprehensive Styling for English Exam Platform - Updated with Unit 5 */
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background: linear-gradient(145deg, #1a3a4a 0%, #0f2c38 100%);
+            font-family: 'Segoe UI', 'Tahoma', 'Arial', sans-serif;
+            min-height: 100vh;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 1300px;
+            margin: 0 auto;
+            background: rgba(255, 248, 240, 0.97);
+            border-radius: 65px;
+            box-shadow: 0 25px 45px rgba(0, 0, 0, 0.3);
+            overflow: hidden;
+        }
+
+        /* Main Menu Screen */
+        #menuScreen {
+            padding: 40px 30px;
+            text-align: center;
+        }
+
+        #menuScreen h1 {
+            font-size: 2.8rem;
+            background: linear-gradient(135deg, #2c6e6e, #1a4a4a);
+            background-clip: text;
+            -webkit-background-clip: text;
+            color: transparent;
+            margin-bottom: 10px;
+            font-weight: 900;
+        }
+
+        #menuScreen .sub {
+            color: #2c6e6e;
+            font-size: 1.2rem;
+            margin-bottom: 30px;
+            font-weight: 500;
+        }
+
+        #menuScreen h2 {
+            color: #1e5a5a;
+            font-size: 1.6rem;
+            margin-bottom: 40px;
+            border-bottom: 2px solid #d4a373;
+            display: inline-block;
+            padding-bottom: 8px;
+        }
+
+        .main-menu {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 20px;
+            margin: 40px 0 30px;
+        }
+
+        .menu-btn {
+            background: linear-gradient(145deg, #e0f0f0, #c8e0e0);
+            border: none;
+            padding: 16px 28px;
+            font-size: 1.1rem;
+            font-weight: bold;
+            border-radius: 60px;
+            cursor: pointer;
+            transition: 0.25s;
+            color: #1a4a4a;
+            box-shadow: 0 8px 12px rgba(0,0,0,0.2);
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-family: inherit;
+            text-align: right;
+        }
+
+        .menu-btn:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 20px rgba(0,0,0,0.25);
+            background: linear-gradient(145deg, #f0ffff, #d8f0f0);
+        }
+
+        .menu-btn.special {
+            background: linear-gradient(145deg, #3a8a7a, #2a6a5a);
+            color: #fff4e6;
+        }
+
+        .footer-note {
+            margin-top: 35px;
+            font-size: 1rem;
+            color: #2c6e6e;
+            background: #e0f0f0;
+            display: inline-block;
+            padding: 8px 22px;
+            border-radius: 40px;
+        }
+
+        /* Quiz Header */
+        .unit-header {
+            background: #1e5a5a;
+            padding: 18px 30px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 15px;
+        }
+
+        .back-btn {
+            background: #a75d2a;
+            border: none;
+            padding: 8px 20px;
+            border-radius: 50px;
+            font-size: 1rem;
+            font-weight: bold;
+            color: white;
+            cursor: pointer;
+            transition: 0.2s;
+        }
+
+        .back-btn:hover {
+            background: #8b481f;
+        }
+
+        .unit-title {
+            font-size: 1.4rem;
+            font-weight: bold;
+            background: #fbeac9;
+            padding: 5px 20px;
+            border-radius: 40px;
+            color: #4a2e1a;
+        }
+
+        .unit-stats {
+            background: #0f4a4a;
+            color: #ffeca2;
+            padding: 6px 18px;
+            border-radius: 30px;
+            font-weight: bold;
+        }
+
+        /* Loading */
+        .loading-overlay {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            padding: 70px;
+            gap: 20px;
+        }
+
+        .spinner {
+            width: 55px;
+            height: 55px;
+            border: 6px solid #c8e0e0;
+            border-top: 6px solid #2c6e6e;
+            border-radius: 50%;
+            animation: spin 0.9s linear infinite;
+        }
+
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+
+        /* Quiz Area */
+        .quiz-container {
+            padding: 35px 30px;
+        }
+
+        .progress-bar {
+            background: #ddd2bd;
+            border-radius: 30px;
+            height: 14px;
+            width: 100%;
+            margin-bottom: 35px;
+            overflow: hidden;
+        }
+
+        .progress-fill {
+            background: linear-gradient(90deg, #2c6e6e, #1a5a5a);
+            width: 0%;
+            height: 100%;
+            border-radius: 30px;
+            transition: width 0.3s;
+        }
+
+        .question-text {
+            font-size: 1.6rem;
+            font-weight: 600;
+            color: #1e3a3a;
+            background: #fefaf0;
+            padding: 25px;
+            border-radius: 55px;
+            margin-bottom: 40px;
+            line-height: 1.5;
+            direction: ltr;
+            text-align: left;
+            font-family: 'Courier New', monospace;
+        }
+
+        .options-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 18px;
+            margin-bottom: 45px;
+        }
+
+        .option-btn {
+            background: #f0f8f8;
+            border: 2px solid #b8d8d8;
+            padding: 14px 12px;
+            border-radius: 55px;
+            font-size: 1rem;
+            font-weight: 500;
+            cursor: pointer;
+            transition: 0.2s;
+            text-align: center;
+            color: #1a4a4a;
+            font-family: monospace;
+            direction: ltr;
+        }
+
+        .option-btn:hover {
+            background: #d8f0f0;
+            border-color: #5a9e9e;
+        }
+
+        .option-btn.selected {
+            background: #2c6e6e;
+            border-color: #1a5a5a;
+            color: white;
+        }
+
+        .nav-buttons {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+        }
+
+        .nav-btn {
+            background: #5a7a6a;
+            color: white;
+            border: none;
+            padding: 12px 35px;
+            border-radius: 60px;
+            font-size: 1.2rem;
+            font-weight: bold;
+            cursor: pointer;
+        }
+
+        .nav-btn:hover {
+            background: #3a5a4a;
+        }
+
+        /* Result Area */
+        .result-card {
+            padding: 35px;
+            text-align: center;
+        }
+
+        .result-card h1 {
+            font-size: 2.4rem;
+            color: #2c6e6e;
+            margin-bottom: 20px;
+        }
+
+        .result-score {
+            font-size: 3rem;
+            font-weight: bold;
+            background: #d8e8e8;
+            display: inline-block;
+            padding: 15px 40px;
+            border-radius: 100px;
+            margin: 15px auto;
+        }
+
+        .result-message {
+            font-size: 1.6rem;
+            font-weight: bold;
+            margin: 10px;
+            color: #2c6e2f;
+        }
+
+        .result-percentage {
+            font-size: 1.3rem;
+            background: #5a9e8e;
+            display: inline-block;
+            padding: 5px 25px;
+            border-radius: 50px;
+            color: white;
+            margin-bottom: 25px;
+        }
+
+        .answers-review {
+            margin-top: 35px;
+            text-align: right;
+            background: #eef5f5;
+            padding: 20px;
+            border-radius: 40px;
+            max-height: 450px;
+            overflow-y: auto;
+        }
+
+        .answers-review h3 {
+            font-size: 1.5rem;
+            margin-bottom: 15px;
+            color: #2c6e6e;
+        }
+
+        .review-item {
+            background: white;
+            margin: 12px 0;
+            padding: 12px 20px;
+            border-radius: 35px;
+            border-right: 8px solid;
+            text-align: left;
+            direction: ltr;
+        }
+
+        .review-correct {
+            border-right-color: #2d6a4f;
+            background: #eafaf1;
+        }
+
+        .review-wrong {
+            border-right-color: #bc4742;
+            background: #ffe6e5;
+        }
+
+        .hidden {
+            display: none !important;
+        }
+
+        @media (max-width: 700px) {
+            .question-text { font-size: 1.1rem; }
+            .menu-btn { padding: 10px 16px; font-size: 0.85rem; gap: 5px; }
+            .unit-title { font-size: 0.9rem; }
+            .main-menu { gap: 12px; }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- Main Menu -->
+        <div id="menuScreen">
+            <h1>📚 English Exam - First Semester</h1>
+            <div class="sub">Grammar, Tenses, Modals, Reported Speech, Conditionals, Relative Clauses</div>
+            <h2>Choose your unit</h2>
+            <div class="main-menu">
+                <button class="menu-btn" data-unit="unit1">📖 Unit 1: Communication (Present Tenses)</button>
+                <button class="menu-btn" data-unit="unit2">🏡 Unit 2: Lifestyles (Articles & Modals)</button>
+                <button class="menu-btn" data-unit="unit3">🤝 Unit 3: Social Issues (Reported Speech)</button>
+                <button class="menu-btn" data-unit="unit4">💻 Unit 4: Digital World (Passive & Conditionals)</button>
+                <button class="menu-btn" data-unit="unit5">❤️ Unit 5: Follow Your Heart (Relative Clauses)</button>
+                <button class="menu-btn special" id="comprehensiveBtn">📜 Full Exam (All 100 Questions)</button>
+            </div>
+            <div class="footer-note">5 units × 20 questions = 100 questions | Comprehensive exam randomized</div>
+        </div>
+
+        <!-- Quiz Screen -->
+        <div id="quizScreen" class="hidden">
+            <div class="unit-header">
+                <button class="back-btn" id="backToMenuBtn">🔙 Back to Menu</button>
+                <span class="unit-title" id="unitTitle">Unit</span>
+                <span class="unit-stats" id="progressText">Question 1 / 20</span>
+            </div>
+            <div id="loadingArea" class="loading-overlay hidden">
+                <div class="spinner"></div>
+                <p>Loading questions...</p>
+            </div>
+            <div id="quizArea" class="hidden">
+                <div class="quiz-container">
+                    <div class="progress-bar"><div class="progress-fill" id="progressFill"></div></div>
+                    <div class="question-text" id="questionText">...</div>
+                    <div class="options-grid" id="optionsContainer"></div>
+                    <div class="nav-buttons">
+                        <button class="nav-btn" id="prevBtn">Previous</button>
+                    </div>
+                </div>
+            </div>
+            <div id="resultArea" class="hidden">
+                <div class="result-card">
+                    <h1>📊 Exam Results</h1>
+                    <div class="result-score"><span id="scoreValue">0</span> / <span id="totalQuestionsValue">0</span></div>
+                    <div class="result-message" id="resultMessage"></div>
+                    <div class="result-percentage" id="resultPercentage"></div>
+                    <button class="back-btn" id="returnToMenuBtn">🔄 New Exam</button>
+                    <div class="answers-review"><h3>✧ Answers Review ✧</h3><div id="answersReview"></div></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Complete English Questions Database (5 Units, 20 each => 100 total)
+        const ENGLISH_QUESTIONS = {
+            "unit1": [
+                {"question": "He __________ (go) to school by bus every day.", "options": ["go", "goes", "is going", "went"], "correct": 1},
+                {"question": "Look! The children __________ in the garden right now.", "options": ["play", "plays", "are playing", "played"], "correct": 2},
+                {"question": "Water __________ at 100 degrees Celsius.", "options": ["boil", "boils", "is boiling", "boiling"], "correct": 1},
+                {"question": "I __________ (not/like) coffee; I prefer tea.", "options": ["not like", "doesn't like", "don't like", "am not liking"], "correct": 2},
+                {"question": "What __________ you __________ at the moment?", "options": ["do/do", "are/doing", "does/do", "did/do"], "correct": 1},
+                {"question": "The verb 'believe' is a state verb, so we say: I __________ you.", "options": ["am believing", "believe", "believes", "believing"], "correct": 1},
+                {"question": "__________ he often __________ his grandparents on weekends?", "options": ["Does/visit", "Do/visit", "Is/visiting", "Did/visit"], "correct": 0},
+                {"question": "We __________ (have) a big party next Saturday.", "options": ["has", "have", "are having", "had"], "correct": 2},
+                {"question": "Teenagers rarely __________ emails these days.", "options": ["write", "writes", "are writing", "writing"], "correct": 0},
+                {"question": "The sun __________ in the east.", "options": ["rise", "rises", "is rising", "rising"], "correct": 1},
+                {"question": "I __________ (think) this is a great idea.", "options": ["am thinking", "think", "thinks", "thinking"], "correct": 1},
+                {"question": "Listen! Someone __________ the piano.", "options": ["play", "plays", "is playing", "played"], "correct": 2},
+                {"question": "How often __________ it __________ in summer in Jordan?", "options": ["is/raining", "does/rain", "do/rain", "did/rain"], "correct": 1},
+                {"question": "They __________ (not/work) today because it's a holiday.", "options": ["don't work", "doesn't work", "aren't working", "isn't working"], "correct": 2},
+                {"question": "The train __________ at 8:00 a.m. tomorrow.", "options": ["leave", "leaves", "is leaving", "left"], "correct": 1},
+                {"question": "I __________ (understand) the lesson now.", "options": ["am understanding", "understand", "understands", "understanding"], "correct": 1},
+                {"question": "She __________ (always/lose) her keys! (expressing annoyance).", "options": ["always loses", "is always losing", "always lose", "lose"], "correct": 1},
+                {"question": "My father __________ in a hospital.", "options": ["work", "works", "is working", "working"], "correct": 1},
+                {"question": "__________ you __________ any help right now?", "options": ["Do/need", "Are/needing", "Does/need", "Need"], "correct": 0},
+                {"question": "At the moment, I __________ a book about Jordan's history.", "options": ["read", "reads", "am reading", "reading"], "correct": 2}
+            ],
+            "unit2": [
+                {"question": "I have __________ new car. __________ car is red.", "options": ["a / The", "the / A", "an / The", "a / A"], "correct": 0},
+                {"question": "He wants to travel to __________ USA next year.", "options": ["a", "an", "the", "zero article"], "correct": 2},
+                {"question": "Mount Everest is __________ highest mountain in the world.", "options": ["a", "an", "the", "zero article"], "correct": 2},
+                {"question": "I love __________ healthy food.", "options": ["a", "an", "the", "zero article"], "correct": 3},
+                {"question": "Petra is __________ important historical site in Jordan.", "options": ["a", "an", "the", "zero article"], "correct": 1},
+                {"question": "You __________ know some things before visiting Thailand.", "options": ["ought to", "don't have to", "are able to", "mustn't"], "correct": 0},
+                {"question": "You __________ lose your temper in public; it's considered rude.", "options": ["couldn't", "mustn't", "don't have to", "should"], "correct": 1},
+                {"question": "You __________ raise your voice at anyone.", "options": ["could", "couldn't", "shouldn't", "have to"], "correct": 2},
+                {"question": "It is __________ to touch exhibits in museums.", "options": ["permitted", "forbidden", "obliged", "should"], "correct": 1},
+                {"question": "I was __________ to pick up the language quickly.", "options": ["succeeded", "managed", "able", "supposed"], "correct": 2},
+                {"question": "You are __________ to recycle your rubbish.", "options": ["supposed", "permitted", "forbidden", "ought"], "correct": 0},
+                {"question": "Is it __________ to take photos here?", "options": ["allowed", "obliged", "must", "should"], "correct": 0},
+                {"question": "We __________ (not/have to) wear a uniform at our school.", "options": ["mustn't", "shouldn't", "don't have to", "aren't able to"], "correct": 2},
+                {"question": "She __________ (succeed) in passing the exam.", "options": ["managed", "could", "was able", "succeeded"], "correct": 3},
+                {"question": "I visited __________ Queen Alia International Airport.", "options": ["a", "an", "the", "zero article"], "correct": 2},
+                {"question": "He goes to __________ school every morning.", "options": ["a", "an", "the", "zero article"], "correct": 3},
+                {"question": "You __________ (should) spend less on clothes.", "options": ["ought to", "must", "have to", "are able to"], "correct": 0},
+                {"question": "They __________ stay behind the barriers for safety reasons.", "options": ["are required to", "doesn't have to", "aren't allowed to", "ought"], "correct": 0},
+                {"question": "I can't live without __________ internet.", "options": ["a", "an", "the", "zero article"], "correct": 2},
+                {"question": "Could you __________ (share) your thoughts on the problem?", "options": ["angle", "bright", "share", "prove"], "correct": 2}
+            ],
+            "unit3": [
+                {"question": "'I am tired,' Ali said. -> Ali said that he __________ tired.", "options": ["is", "was", "has been", "had been"], "correct": 1},
+                {"question": "'I have finished my homework,' Salma said. -> She said she __________ her homework.", "options": ["finishes", "is finishing", "had finished", "finished"], "correct": 2},
+                {"question": "'We will visit you tomorrow,' they said. -> They said they __________ visit us the next day.", "options": ["will", "would", "can", "shall"], "correct": 1},
+                {"question": "'Where do you live?' -> He asked me where I __________ .", "options": ["live", "lived", "am living", "had lived"], "correct": 1},
+                {"question": "'Why are you leaving early?' -> He asked us why we __________ early.", "options": ["leave", "are leaving", "were leaving", "had left"], "correct": 2},
+                {"question": "'Were you at the meeting yesterday?' -> She wanted to know if I __________ at the meeting the day before.", "options": ["was", "had been", "am", "have been"], "correct": 1},
+                {"question": "'I'll cook for you on Saturday,' Nadia __________ .", "options": ["asked", "told", "promised", "denied"], "correct": 2},
+                {"question": "'I didn't take the photo!' -> Rana __________ taking the photo.", "options": ["denied", "promised", "advised", "insisted"], "correct": 0},
+                {"question": "'You should walk more,' the doctor __________ us.", "options": ["promised", "reminded", "advised", "apologised"], "correct": 2},
+                {"question": "'Don't forget your homework,' the teacher __________ the students.", "options": ["asked", "reminded", "told", "advised"], "correct": 1},
+                {"question": "'I'm sorry I woke the baby,' Noura __________ .", "options": ["promised", "apologised for", "insisted on", "accused"], "correct": 1},
+                {"question": "'You copied the essay!' -> The teacher __________ me of copying the essay.", "options": ["denied", "insisted", "accused", "advised"], "correct": 2},
+                {"question": "'Can you show me the way?' -> He asked me if I __________ show him the way.", "options": ["can", "could", "will", "would"], "correct": 1},
+                {"question": "'I have never been to this university,' he said. -> He told me he __________ been to that university before.", "options": ["wasn't", "hadn't", "hasn't", "isn't"], "correct": 1},
+                {"question": "'Don't block the door!' -> We __________ them not to block the door.", "options": ["asked", "said", "ordered", "advised"], "correct": 2},
+                {"question": "'I wish I hadn't bought these shoes,' Osama said. -> Osama __________ buying those shoes.", "options": ["promised", "regretted", "denied", "insisted"], "correct": 1},
+                {"question": "The university is against __________ (discrimination based on race).", "options": ["equality", "freedom", "discrimination", "homelessness"], "correct": 2},
+                {"question": "We believe in __________ of speech.", "options": ["freedom", "expansion", "poverty", "racism"], "correct": 0},
+                {"question": "The city is trying to reduce __________ (the state of being very poor).", "options": ["equality", "poverty", "unemployment", "freedom"], "correct": 1},
+                {"question": "Youth __________ is a problem in many countries (not having a job).", "options": ["employment", "unemployment", "equality", "racism"], "correct": 1}
+            ],
+            "unit4": [
+                {"question": "The parcel __________ (deliver) by four o'clock tomorrow.", "options": ["delivers", "will deliver", "will be delivered", "is delivered"], "correct": 2},
+                {"question": "The smartwatch __________ (give) to me as a gift last week.", "options": ["gives", "gave", "was given", "has given"], "correct": 2},
+                {"question": "If I __________ (pass) my exams, I would be at university now.", "options": ["pass", "passed", "had passed", "would pass"], "correct": 2},
+                {"question": "If I __________ (know) what to do, I wouldn't ask you.", "options": ["know", "knew", "had known", "would know"], "correct": 1},
+                {"question": "Unless you __________ (run), you're going to be late.", "options": ["run", "ran", "will run", "don't run"], "correct": 0},
+                {"question": "The original smartwatch __________ (design) by Steve Mann.", "options": ["designs", "designed", "was designed", "is designed"], "correct": 2},
+                {"question": "More milk __________ (order) by the fridge automatically before you run out.", "options": ["will order", "will be ordered", "is ordered", "orders"], "correct": 1},
+                {"question": "If we __________ (spend) more on society, fewer people would live in hardship.", "options": ["spend", "spent", "had spent", "will spend"], "correct": 1},
+                {"question": "If we had eaten breakfast, we __________ (not/be) so hungry now.", "options": ["won't be", "wouldn't be", "wouldn't have been", "aren't"], "correct": 1},
+                {"question": "If you __________ (not/be) so extravagant, you'd have money left.", "options": ["aren't", "weren't", "haven't been", "won't be"], "correct": 1},
+                {"question": "Water __________ (freeze) if the temperature falls below zero.", "options": ["freeze", "freezes", "will freeze", "froze"], "correct": 1},
+                {"question": "If I __________ (richer), I would donate money to charity.", "options": ["am", "was", "were", "had been"], "correct": 2},
+                {"question": "The sculpture was made __________ electronic waste.", "options": ["by", "of", "from", "with"], "correct": 2},
+                {"question": "Teens use their smart __________ to blog and communicate.", "options": ["gadgets", "stains", "blunders", "setbacks"], "correct": 0},
+                {"question": "Many photos __________ (enhance) with the latest apps.", "options": ["enhance", "are enhanced", "is enhanced", "enhanced"], "correct": 1},
+                {"question": "My phone needs an __________ (to change for something better).", "options": ["upgrade", "outdated", "obsolete", "handle"], "correct": 0},
+                {"question": "This old software is __________ (no longer in use).", "options": ["latest", "upbeat", "obsolete", "influential"], "correct": 2},
+                {"question": "The experiment was a __________ (a brilliant action).", "options": ["flop", "setback", "blunder", "masterstroke"], "correct": 3},
+                {"question": "There were some minor __________ at the beginning of the project.", "options": ["setbacks", "masterstrokes", "upgrades", "devices"], "correct": 0},
+                {"question": "If I __________ (follow) my heart, I could be very unhappy now.", "options": ["don't follow", "didn't follow", "had not followed", "not follow"], "correct": 2}
+            ],
+            "unit5": [
+                {"question": "The man __________ lives next door is a famous pilot.", "options": ["which", "who", "where", "whose"], "correct": 1},
+                {"question": "This is the company __________ manufactures aircraft parts.", "options": ["who", "which", "where", "when"], "correct": 1},
+                {"question": "Amman is the city __________ I was born.", "options": ["which", "who", "where", "whose"], "correct": 2},
+                {"question": "I met a student __________ brother works as a flight attendant.", "options": ["who", "which", "whose", "that"], "correct": 2},
+                {"question": "Do you remember the time __________ we visited the museum?", "options": ["where", "when", "which", "who"], "correct": 1},
+                {"question": "The laptop, __________ I bought last week, is already broken.", "options": ["that", "which", "who", "where"], "correct": 1},
+                {"question": "People __________ work hard usually succeed in their careers.", "options": ["who", "which", "whose", "when"], "correct": 0},
+                {"question": "The qualification __________ you need for this job is a degree.", "options": ["who", "whose", "that", "where"], "correct": 2},
+                {"question": "I have a friend __________ father is a successful entrepreneur.", "options": ["who", "which", "whose", "where"], "correct": 2},
+                {"question": "This is the hospital __________ my uncle works.", "options": ["which", "where", "who", "that"], "correct": 1},
+                {"question": "Working as a flight attendant __________ many young people.", "options": ["appeals to", "deals with", "back up", "pick up"], "correct": 0},
+                {"question": "There are far more candidates than __________, so it's hard to get a job.", "options": ["vacancies", "downsides", "skills", "gadgets"], "correct": 0},
+                {"question": "One of the __________ of the job is working long hours.", "options": ["benefits", "downsides", "upgrades", "masterstrokes"], "correct": 1},
+                {"question": "You can __________ and choose the best option if you have high skills.", "options": ["pick", "deal", "take", "apply"], "correct": 0},
+                {"question": "She decided to __________ for a new job at the airline.", "options": ["apply", "handle", "improve", "upgrade"], "correct": 0},
+                {"question": "If I had not followed my __________, I could be very unhappy now.", "options": ["mind", "heart", "head", "clue"], "correct": 1},
+                {"question": "A __________ is a person who helps passengers on an aircraft.", "options": ["pilot", "flight attendant", "engineer", "manager"], "correct": 1},
+                {"question": "There is a __________ chance that you might succeed if you try.", "options": ["slight", "broad", "large", "heavy"], "correct": 0},
+                {"question": "The university __________ I studied is very old.", "options": ["where", "which", "who", "whose"], "correct": 0},
+                {"question": "The teacher __________ me on passing the exam.", "options": ["congratulated", "denied", "insisted", "reminded"], "correct": 0}
+            ]
+        };
+
+        // App Logic (same as before, now supports 5 units)
+        let currentQuestions = [];
+        let currentIndex = 0;
+        let userAnswers = [];
+        let totalQuestionsCount = 0;
+
+        const menuScreen = document.getElementById('menuScreen');
+        const quizScreen = document.getElementById('quizScreen');
+        const loadingArea = document.getElementById('loadingArea');
+        const quizArea = document.getElementById('quizArea');
+        const resultArea = document.getElementById('resultArea');
+        const unitTitleSpan = document.getElementById('unitTitle');
+        const progressTextSpan = document.getElementById('progressText');
+        const progressFillDiv = document.getElementById('progressFill');
+        const questionTextDiv = document.getElementById('questionText');
+        const optionsContainer = document.getElementById('optionsContainer');
+        const prevBtn = document.getElementById('prevBtn');
+        const backToMenuBtn = document.getElementById('backToMenuBtn');
+        const returnToMenuBtn = document.getElementById('returnToMenuBtn');
+        const comprehensiveBtn = document.getElementById('comprehensiveBtn');
+
+        function loadQuestions(unitKey, isComprehensive = false) {
+            loadingArea.classList.remove('hidden');
+            quizArea.classList.add('hidden');
+            resultArea.classList.add('hidden');
+            setTimeout(() => {
+                let selected = [];
+                if (isComprehensive) {
+                    let all = [];
+                    for (let u in ENGLISH_QUESTIONS) all.push(...ENGLISH_QUESTIONS[u]);
+                    for (let i = all.length - 1; i > 0; i--) {
+                        const j = Math.floor(Math.random() * (i + 1));
+                        [all[i], all[j]] = [all[j], all[i]];
+                    }
+                    selected = all.slice(0, 100);
+                } else {
+                    if (ENGLISH_QUESTIONS[unitKey]) selected = [...ENGLISH_QUESTIONS[unitKey]];
+                    else selected = [];
+                }
+                if (!selected.length) { alert('No questions found'); backToMenu(); return; }
+                currentQuestions = selected;
+                totalQuestionsCount = currentQuestions.length;
+                userAnswers = Array(totalQuestionsCount).fill(null);
+                currentIndex = 0;
+                renderCurrentQuestion();
+                loadingArea.classList.add('hidden');
+                quizArea.classList.remove('hidden');
+                updateProgressBarAndText();
+            }, 200);
+        }
+
+        function renderCurrentQuestion() {
+            if (!currentQuestions.length) return;
+            const q = currentQuestions[currentIndex];
+            questionTextDiv.innerHTML = q.question;
+            optionsContainer.innerHTML = '';
+            const letters = ['A', 'B', 'C', 'D'];
+            q.options.forEach((opt, idx) => {
+                const btn = document.createElement('button');
+                btn.className = 'option-btn';
+                if (userAnswers[currentIndex] === idx) btn.classList.add('selected');
+                btn.innerHTML = `${letters[idx]}. ${opt}`;
+                btn.addEventListener('click', () => {
+                    if (userAnswers[currentIndex] !== idx) {
+                        userAnswers[currentIndex] = idx;
+                        highlightSelectedOption();
+                    }
+                });
+                optionsContainer.appendChild(btn);
+            });
+            prevBtn.style.display = currentIndex === 0 ? 'none' : 'inline-block';
+            if (currentIndex === totalQuestionsCount - 1) {
+                if (!document.getElementById('nextFinishBtn')) {
+                    const finishBtn = document.createElement('button');
+                    finishBtn.id = 'nextFinishBtn';
+                    finishBtn.className = 'nav-btn';
+                    finishBtn.textContent = 'Finish Exam 🎯';
+                    finishBtn.addEventListener('click', showResults);
+                    prevBtn.parentNode.appendChild(finishBtn);
+                }
+                const nextNormal = document.getElementById('nextNormalBtn');
+                if (nextNormal) nextNormal.remove();
+            } else {
+                const existingFinish = document.getElementById('nextFinishBtn');
+                if (existingFinish) existingFinish.remove();
+                if (!document.getElementById('nextNormalBtn')) {
+                    const nextBtn = document.createElement('button');
+                    nextBtn.id = 'nextNormalBtn';
+                    nextBtn.className = 'nav-btn';
+                    nextBtn.textContent = 'Next ➡';
+                    nextBtn.addEventListener('click', () => {
+                        if (currentIndex < totalQuestionsCount - 1) {
+                            currentIndex++;
+                            renderCurrentQuestion();
+                            updateProgressBarAndText();
+                        }
+                    });
+                    prevBtn.parentNode.appendChild(nextBtn);
+                }
+            }
+            updateProgressBarAndText();
+        }
+
+        function highlightSelectedOption() {
+            const btns = document.querySelectorAll('.option-btn');
+            btns.forEach((btn, idx) => {
+                if (userAnswers[currentIndex] === idx) btn.classList.add('selected');
+                else btn.classList.remove('selected');
+            });
+        }
+
+        function updateProgressBarAndText() {
+            progressTextSpan.innerText = `Question ${currentIndex+1} / ${totalQuestionsCount}`;
+            let percent = (currentIndex / totalQuestionsCount) * 100;
+            progressFillDiv.style.width = percent + '%';
+        }
+
+        function showResults() {
+            let score = 0;
+            let reviewHtml = '';
+            for (let i = 0; i < totalQuestionsCount; i++) {
+                const userAns = userAnswers[i];
+                const correctAns = currentQuestions[i].correct;
+                const isCorrect = (userAns === correctAns);
+                if (isCorrect) score++;
+                const qText = currentQuestions[i].question;
+                const userOption = userAns !== null ? currentQuestions[i].options[userAns] : 'Not answered';
+                const correctOption = currentQuestions[i].options[correctAns];
+                const statusClass = isCorrect ? 'review-correct' : 'review-wrong';
+                reviewHtml += `<div class="review-item ${statusClass}"><strong>❓ Q:</strong> ${qText}<br><span>📌 Your answer: ${userOption}</span><br><span>✅ Correct: ${correctOption}</span></div>`;
+            }
+            const percentage = ((score / totalQuestionsCount) * 100).toFixed(1);
+            let message = percentage >= 85 ? '🏆 Excellent! Mastery of English! 🏆' : percentage >= 65 ? '📘 Good job, review a bit more' : percentage >= 50 ? '📖 Fair, keep practicing' : '📚 Needs improvement, study again';
+            document.getElementById('scoreValue').innerText = score;
+            document.getElementById('totalQuestionsValue').innerText = totalQuestionsCount;
+            document.getElementById('resultMessage').innerHTML = message;
+            document.getElementById('resultPercentage').innerHTML = `Percentage: ${percentage}%`;
+            document.getElementById('answersReview').innerHTML = reviewHtml;
+            quizArea.classList.add('hidden');
+            resultArea.classList.remove('hidden');
+        }
+
+        function backToMenu() {
+            menuScreen.classList.remove('hidden');
+            quizScreen.classList.add('hidden');
+            currentQuestions = [];
+        }
+
+        function startQuiz(unit, isComprehensive = false) {
+            menuScreen.classList.add('hidden');
+            quizScreen.classList.remove('hidden');
+            if (isComprehensive) unitTitleSpan.innerText = '📜 Comprehensive Exam (100 questions)';
+            else {
+                const titles = { unit1: '📖 Unit 1: Communication (Present Tenses)', unit2: '🏡 Unit 2: Lifestyles (Articles & Modals)', unit3: '🤝 Unit 3: Social Issues (Reported Speech)', unit4: '💻 Unit 4: Digital World (Passive & Conditionals)', unit5: '❤️ Unit 5: Follow Your Heart (Relative Clauses)' };
+                unitTitleSpan.innerText = titles[unit] || 'English Test';
+            }
+            loadQuestions(unit, isComprehensive);
+        }
+
+        document.querySelectorAll('.menu-btn:not(#comprehensiveBtn)').forEach(btn => {
+            btn.addEventListener('click', () => { const unit = btn.getAttribute('data-unit'); if (unit) startQuiz(unit, false); });
+        });
+        comprehensiveBtn.addEventListener('click', () => startQuiz('comprehensive', true));
+        backToMenuBtn.addEventListener('click', backToMenu);
+        returnToMenuBtn.addEventListener('click', backToMenu);
+        prevBtn.addEventListener('click', () => { if (currentIndex > 0) { currentIndex--; renderCurrentQuestion(); updateProgressBarAndText(); } });
+    </script>
+</body>
+</html>
